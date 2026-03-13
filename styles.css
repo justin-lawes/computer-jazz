@@ -1,0 +1,338 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #000;
+  --text: #d4d0cc;
+  --text-bright: #fff;
+  --text-dim: #888;
+  --accent: #d4d0cc;
+  --font: 'Roboto Mono', 'Courier New', monospace;
+  --max-width: 680px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+}
+
+.logo {
+  display: block;
+  width: 130px;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+}
+
+nav a {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  color: var(--text-dim);
+  transition: color 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--text-bright);
+  opacity: 1;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.mobile-nav.open {
+  display: flex;
+}
+
+.mobile-nav a {
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+}
+
+.mobile-nav a:hover,
+.mobile-nav a.active {
+  color: var(--text-bright);
+}
+
+/* Main */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 40px;
+}
+
+/* Footer */
+footer {
+  padding: 60px 40px 40px;
+  text-align: center;
+}
+
+footer .instagram-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--text-dim);
+  transition: color 0.2s;
+}
+
+footer a:hover .instagram-icon {
+  color: var(--text-bright);
+}
+
+footer p {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+/* ---- PAGE: Music (Home) ---- */
+.page-music {
+  text-align: center;
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+.page-music .album-announce {
+  margin: 40px 0 20px;
+}
+
+.page-music .album-announce h2 {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
+
+.page-music .album-announce p {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text);
+  margin-top: 4px;
+}
+
+.page-music .album-art {
+  width: 100%;
+  margin: 40px auto;
+  position: relative;
+}
+
+.page-music .album-art img {
+  width: 100%;
+  display: block;
+}
+
+/* Video embed */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* 1:1 aspect ratio */
+  margin: 40px auto;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.page-music .buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 0 auto 40px;
+}
+
+.page-music .buttons a {
+  display: inline-block;
+  padding: 10px 28px;
+  border: 1px solid var(--text-dim);
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--text);
+  transition: all 0.2s;
+}
+
+.page-music .buttons a:hover {
+  border-color: var(--text-bright);
+  color: var(--text-bright);
+  opacity: 1;
+}
+
+/* ---- PAGE: Photos ---- */
+.page-photos {
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+.photo-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 20px;
+}
+
+.photo-row {
+  display: flex;
+  gap: 4px;
+}
+
+.photo-row.full {
+  display: block;
+}
+
+.photo-item {
+  flex: 1;
+  aspect-ratio: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* ---- PAGE: Bio ---- */
+.page-bio {
+  width: 100%;
+  max-width: var(--max-width);
+  padding: 20px 0;
+}
+
+.page-bio p {
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+/* ---- PAGE: Contact ---- */
+.page-contact {
+  width: 100%;
+  max-width: var(--max-width);
+  text-align: center;
+  padding-top: 40px;
+}
+
+.page-contact h2 {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.page-contact a.email {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.page-contact a.email:hover {
+  color: var(--text-bright);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  header {
+    padding: 20px 24px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  main {
+    padding: 0 24px;
+  }
+
+  footer {
+    padding: 40px 24px 30px;
+  }
+
+  .page-music .buttons a {
+    padding: 8px 20px;
+    font-size: 12px;
+  }
+
+  .photo-row {
+    flex-direction: column;
+  }
+}

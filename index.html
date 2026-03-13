@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer Jazz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <a href="#/" class="logo" aria-label="Computer Jazz Home">
+      <img src="images/logo.jpg" alt="Computer Jazz" class="logo-img">
+    </a>
+    <nav id="main-nav">
+      <a href="#/" data-page="music">MUSIC</a>
+      <a href="#/photos" data-page="photos">PHOTOS</a>
+      <a href="#/bio" data-page="bio">BIO</a>
+      <a href="#/contact" data-page="contact">CONTACT</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span>MENU</span>
+    </button>
+  </header>
+
+  <!-- Mobile nav overlay -->
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#/" data-page="music">MUSIC</a>
+    <a href="#/photos" data-page="photos">PHOTOS</a>
+    <a href="#/bio" data-page="bio">BIO</a>
+    <a href="#/contact" data-page="contact">CONTACT</a>
+  </div>
+
+  <main id="app"></main>
+
+  <footer>
+    <a href="https://www.instagram.com/computer.jazz/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="5"/>
+        <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+    <p>Computer Jazz</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
