@@ -98,6 +98,24 @@ const pages = {
     </div>
   `,
 
+  tour: () => `
+    <div class="page-tour">
+      <div class="tour-list">
+        <div class="tour-item">
+          <div class="tour-date">
+            <span class="tour-month">MAR</span>
+            <span class="tour-day">28</span>
+          </div>
+          <div class="tour-info">
+            <span class="tour-venue">Building 5</span>
+            <span class="tour-city">Portland, OR</span>
+          </div>
+          <a href="https://www.instagram.com/555_exhibition/" target="_blank" rel="noopener" class="tour-tickets">Info</a>
+        </div>
+      </div>
+    </div>
+  `,
+
   contact: () => `
     <div class="page-contact">
       <h2>Say hello!</h2>
@@ -116,6 +134,7 @@ function getPage() {
     'music': 'music',
     'photos': 'photos',
     'gallery': 'photos',
+    'tour': 'tour',
     'bio': 'bio',
     'contact': 'contact'
   };
