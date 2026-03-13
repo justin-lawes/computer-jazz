@@ -374,6 +374,53 @@ footer p {
   color: var(--text-bright);
 }
 
+/* ---- Lightbox ---- */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-family: var(--font);
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.lightbox-close:hover {
+  color: var(--text-bright);
+}
+
+.photo-item {
+  cursor: pointer;
+}
+
 /* ---- Responsive ---- */
 @media (max-width: 768px) {
   header {

@@ -154,7 +154,25 @@ function render() {
 
   // Close mobile nav
   mobileNav.classList.remove('open');
+
+  // Attach lightbox to photo items
+  if (page === 'photos') {
+    app.querySelectorAll('.photo-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('open');
+      });
+    });
+  }
 }
+
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('img');
+lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') lightbox.classList.remove('open');
+});
 
 // Hamburger toggle
 hamburger.addEventListener('click', () => {
