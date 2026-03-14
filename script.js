@@ -8,15 +8,19 @@ const pages = {
   music: () => `
     <div class="page-music">
       <div class="album-announce">
-        <h2>New Album "Computer Jazz"</h2>
+        <h2>"Computer Jazz"</h2>
         <p>Out Now</p>
       </div>
       <div class="video-wrapper">
         <iframe src="https://player.vimeo.com/video/848569961?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
+      <div class="spotify-player">
+        <iframe src="https://open.spotify.com/embed/album/4aHYmpZP3G7wdXb3X3G58R?utm_source=generator&theme=0" width="100%" height="552" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
       <div class="buttons">
         <a href="https://computerjazz.bandcamp.com/" target="_blank" rel="noopener">Bandcamp</a>
-        <a href="https://distrokid.com/hyperfollow/computerjazz/computer-jazz" target="_blank" rel="noopener">Stream</a>
+        <a href="https://open.spotify.com/album/4aHYmpZP3G7wdXb3X3G58R" target="_blank" rel="noopener">Spotify</a>
+        <a href="https://music.apple.com/us/album/computer-jazz/1697882351" target="_blank" rel="noopener">Apple Music</a>
       </div>
     </div>
   `,
@@ -157,9 +161,12 @@ function render() {
 
   // Attach lightbox to photo items
   if (page === 'photos') {
-    app.querySelectorAll('.photo-item img').forEach(img => {
+    const imgs = app.querySelectorAll('.photo-item img');
+    lightboxImages = Array.from(imgs).map(img => img.src);
+    imgs.forEach((img, i) => {
       img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
+        lightboxIndex = i;
+        lightboxImg.src = lightboxImages[i];
         lightbox.classList.add('open');
       });
     });
@@ -169,9 +176,28 @@ function render() {
 // Lightbox
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = lightbox.querySelector('img');
-lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+const lightboxPrev = document.getElementById('lightbox-prev');
+const lightboxNext = document.getElementById('lightbox-next');
+let lightboxImages = [];
+let lightboxIndex = 0;
+
+function lightboxShow(index) {
+  lightboxIndex = (index + lightboxImages.length) % lightboxImages.length;
+  lightboxImg.src = lightboxImages[lightboxIndex];
+}
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
+    lightbox.classList.remove('open');
+  }
+});
+lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); lightboxShow(lightboxIndex - 1); });
+lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); lightboxShow(lightboxIndex + 1); });
 document.addEventListener('keydown', (e) => {
+  if (!lightbox.classList.contains('open')) return;
   if (e.key === 'Escape') lightbox.classList.remove('open');
+  if (e.key === 'ArrowLeft') lightboxShow(lightboxIndex - 1);
+  if (e.key === 'ArrowRight') lightboxShow(lightboxIndex + 1);
 });
 
 // Hamburger toggle

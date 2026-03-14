@@ -133,6 +133,15 @@ main {
   padding: 0 40px;
 }
 
+main > * {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Footer */
 footer {
   padding: 60px 40px 40px;
@@ -164,7 +173,7 @@ footer p {
 }
 
 .page-music .album-announce {
-  margin: 40px 0 20px;
+  margin: 60px 0 30px;
 }
 
 .page-music .album-announce h2 {
@@ -197,7 +206,7 @@ footer p {
   position: relative;
   width: 100%;
   padding-bottom: 100%; /* 1:1 aspect ratio */
-  margin: 40px auto;
+  margin: 60px auto;
   overflow: hidden;
 }
 
@@ -210,11 +219,18 @@ footer p {
   border: 0;
 }
 
+.spotify-player {
+  width: 100%;
+  margin: 40px auto 50px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
 .page-music .buttons {
   display: flex;
   gap: 16px;
   justify-content: center;
-  margin: 0 auto 40px;
+  margin: 0 auto 60px;
 }
 
 .page-music .buttons a {
@@ -419,6 +435,32 @@ footer p {
 
 .photo-item {
   cursor: pointer;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-family: var(--font);
+  font-size: 28px;
+  cursor: pointer;
+  padding: 20px;
+  transition: color 0.2s;
+}
+
+.lightbox-nav:hover {
+  color: var(--text-bright);
+}
+
+.lightbox-prev {
+  left: 12px;
+}
+
+.lightbox-next {
+  right: 12px;
 }
 
 /* ---- Responsive ---- */
