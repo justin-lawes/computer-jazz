@@ -4,7 +4,7 @@
     {
       "name": "computer-jazz-dev",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8090", "--directory", "/Users/justinlawes/Dropbox/01_STUDIO/02_internalProjects/ClaudeCode/computer-jazz"],
+      "runtimeArgs": ["-m", "http.server", "8090", "--directory", "D:/dev/web/computer-jazz"],
       "port": 8090
     }
   ]
