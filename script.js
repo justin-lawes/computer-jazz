@@ -12,7 +12,7 @@ const pages = {
         <p>Out Now</p>
       </div>
       <div class="video-wrapper">
-        <iframe src="https://player.vimeo.com/video/848569961?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <iframe src="https://framerate.tv/embed/89eabea9-faa7-41c1-8bbd-153068d1f8d3?autoplay=1&muted=1&loop=1&show_controls=0&initial_play_btn=0&theme=minimal" allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
       <div class="spotify-player">
         <iframe src="https://open.spotify.com/embed/album/4aHYmpZP3G7wdXb3X3G58R?utm_source=generator&theme=0" width="100%" height="552" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
