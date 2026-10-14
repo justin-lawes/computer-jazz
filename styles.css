@@ -208,6 +208,8 @@ footer p {
   padding-bottom: 100%; /* 1:1 aspect ratio */
   margin: 60px auto;
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
 }
 
 .video-wrapper iframe {

@@ -11,11 +11,11 @@ const pages = {
         <h2>"Computer Jazz"</h2>
         <p>Out Now</p>
       </div>
-      <div class="video-wrapper">
-        <iframe src="https://framerate.tv/embed/89eabea9-faa7-41c1-8bbd-153068d1f8d3?autoplay=1&muted=1&loop=1&show_controls=0&initial_play_btn=0&theme=minimal" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <div class="video-wrapper" style="background-image: url(images/album-loop-poster.webp)">
+        <iframe data-src="https://framerate.tv/embed/89eabea9-faa7-41c1-8bbd-153068d1f8d3?autoplay=1&muted=1&loop=1&show_controls=0&initial_play_btn=0&theme=minimal" title="Computer Jazz album art loop" allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
       <div class="spotify-player">
-        <iframe src="https://open.spotify.com/embed/album/4aHYmpZP3G7wdXb3X3G58R?utm_source=generator&theme=0" width="100%" height="552" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe src="https://open.spotify.com/embed/album/4aHYmpZP3G7wdXb3X3G58R?utm_source=generator&theme=0" width="100%" height="552" title="Computer Jazz on Spotify" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
       <div class="buttons">
         <a href="https://computerjazz.bandcamp.com/" target="_blank" rel="noopener">Bandcamp</a>
@@ -30,64 +30,64 @@ const pages = {
       <div class="photo-grid">
         <div class="photo-row full">
           <div class="photo-item">
-            <img src="images/gallery_01_desert_portrait.jpg" alt="" loading="lazy">
+            <img src="images/gallery_01_desert_portrait.webp" width="1600" height="1993" alt="" loading="lazy">
           </div>
         </div>
         <div class="photo-row full">
           <div class="photo-item">
-            <img src="images/gallery_02_bw_landscape.jpg" alt="" loading="lazy">
+            <img src="images/gallery_02_bw_landscape.webp" width="1600" height="1030" alt="" loading="lazy">
           </div>
         </div>
         <div class="photo-row">
           <div class="photo-item">
-            <img src="images/gallery_03_synth_closeup.jpg" alt="" loading="lazy">
+            <img src="images/gallery_03_synth_closeup.webp" width="1600" height="900" alt="" loading="lazy">
           </div>
           <div class="photo-item">
-            <img src="images/gallery_04_live_setup.jpg" alt="" loading="lazy">
-          </div>
-        </div>
-        <div class="photo-row">
-          <div class="photo-item">
-            <img src="images/gallery_05_synth_patch.jpg" alt="" loading="lazy">
-          </div>
-          <div class="photo-item">
-            <img src="images/gallery_06_studio_back.jpg" alt="" loading="lazy">
-          </div>
-        </div>
-        <div class="photo-row full">
-          <div class="photo-item">
-            <img src="images/gallery_07_desert_wide.jpg" alt="" loading="lazy">
-          </div>
-        </div>
-        <div class="photo-row full">
-          <div class="photo-item">
-            <img src="images/gallery_08_dog.jpg" alt="" loading="lazy">
+            <img src="images/gallery_04_live_setup.webp" width="1600" height="900" alt="" loading="lazy">
           </div>
         </div>
         <div class="photo-row">
           <div class="photo-item">
-            <img src="images/gallery_09_basement_01.jpg" alt="" loading="lazy">
+            <img src="images/gallery_05_synth_patch.webp" width="1600" height="900" alt="" loading="lazy">
           </div>
           <div class="photo-item">
-            <img src="images/gallery_10_basement_02.jpg" alt="" loading="lazy">
+            <img src="images/gallery_06_studio_back.webp" width="1600" height="902" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="photo-row full">
+          <div class="photo-item">
+            <img src="images/gallery_07_desert_wide.webp" width="1290" height="2000" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="photo-row full">
+          <div class="photo-item">
+            <img src="images/gallery_08_dog.webp" width="1600" height="964" alt="" loading="lazy">
           </div>
         </div>
         <div class="photo-row">
           <div class="photo-item">
-            <img src="images/gallery_11_desert_chair.jpg" alt="" loading="lazy">
+            <img src="images/gallery_09_basement_01.webp" width="889" height="1160" alt="" loading="lazy">
           </div>
           <div class="photo-item">
-            <img src="images/gallery_12_desert_landscape.jpg" alt="" loading="lazy">
+            <img src="images/gallery_10_basement_02.webp" width="890" height="1160" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="photo-row">
+          <div class="photo-item">
+            <img src="images/gallery_11_desert_chair.webp" width="1600" height="1033" alt="" loading="lazy">
+          </div>
+          <div class="photo-item">
+            <img src="images/gallery_12_desert_landscape.webp" width="1600" height="1049" alt="" loading="lazy">
           </div>
         </div>
         <div class="photo-row full">
           <div class="photo-item">
-            <img src="images/gallery_13_studio_portrait.jpg" alt="" loading="lazy">
+            <img src="images/gallery_13_studio_portrait.webp" width="1600" height="900" alt="" loading="lazy">
           </div>
         </div>
         <div class="photo-row full">
           <div class="photo-item">
-            <img src="images/gallery_14_desert_final.jpg" alt="" loading="lazy">
+            <img src="images/gallery_14_desert_final.webp" width="1600" height="1279" alt="" loading="lazy">
           </div>
         </div>
       </div>
@@ -140,6 +140,12 @@ function render() {
   app.innerHTML = pages[page]();
   window.scrollTo(0, 0);
 
+  // Load embeds only after the rest of the page has finished loading.
+  const deferred = app.querySelectorAll('iframe[data-src]');
+  const loadDeferred = () => deferred.forEach(f => { f.src = f.dataset.src; });
+  if (document.readyState === 'complete') loadDeferred();
+  else window.addEventListener('load', loadDeferred, { once: true });
+
   // Update active nav
   navLinks.forEach(link => {
     const linkPage = link.dataset.page;
@@ -148,6 +154,9 @@ function render() {
 
   // Close mobile nav
   mobileNav.classList.remove('open');
+
+  // Close the lightbox when the route changes
+  lightbox.classList.remove('open');
 
   // Attach lightbox to photo items
   if (page === 'photos') {
