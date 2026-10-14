@@ -105,17 +105,7 @@ const pages = {
   tour: () => `
     <div class="page-tour">
       <div class="tour-list">
-        <div class="tour-item">
-          <div class="tour-date">
-            <span class="tour-month">MAR</span>
-            <span class="tour-day">28</span>
-          </div>
-          <div class="tour-info">
-            <span class="tour-venue">Building 5</span>
-            <span class="tour-city">Portland, OR</span>
-          </div>
-          <a href="https://www.instagram.com/555_exhibition/" target="_blank" rel="noopener" class="tour-tickets">Info</a>
-        </div>
+        <p class="tour-empty">No upcoming dates.</p>
       </div>
     </div>
   `,
